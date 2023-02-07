@@ -272,10 +272,7 @@ export const NotionPage = ({
         footer={footer}
       />
 
-      {pageId !== site.rootNotionPageId ||
-        (pageId !== '0dd93a1ac27d4dc0b3ec108e3e00c16d' && (
-          <Utterances darkMode={isDarkMode} />
-        ))}
+      {pageId !== site.rootNotionPageId && <Utterances darkMode={isDarkMode} />}
     </>
   )
 }
