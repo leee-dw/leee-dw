@@ -1,0 +1,76 @@
+{
+  "name": "leee-dw",
+  "version": "1.0.0",
+  "private": true,
+  "description": "building websites with Next.js and Notion.",
+  "author": "Dongwoo Lee <dylan.dw.lee@gmail.com>",
+  "repository": "leee-dw/leee-dw",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "deploy": "vercel deploy",
+    "deps": "run-s deps:*",
+    "deps:update": "[ -z $GITHUB_ACTIONS ] && yarn add notion-client notion-types notion-utils react-notion-x || echo 'Skipping deps:update on CI'",
+    "deps:link": "[ -z $GITHUB_ACTIONS ] && yarn link notion-client notion-types notion-utils react-notion-x || echo 'Skipping deps:link on CI'",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+    "test": "run-p test:*",
+    "test:lint": "eslint '**/*.{ts,tsx}'",
+    "test:prettier": "prettier '**/*.{js,jsx,ts,tsx}' --check"
+  },
+  "dependencies": {
+    "@fisch0920/use-dark-mode": "^2.4.0",
+    "@keyvhq/core": "^1.6.14",
+    "@keyvhq/redis": "^1.6.21",
+    "@react-icons/all-files": "^4.1.0",
+    "@vercel/og": "^0.0.19",
+    "classnames": "^2.3.2",
+    "date-fns": "^2.29.3",
+    "expiry-map": "^2.0.0",
+    "fathom-client": "^3.5.0",
+    "got": "^12.5.3",
+    "isomorphic-unfetch": "^3.1.0",
+    "lqip-modern": "^1.2.0",
+    "next": "^12.3.4",
+    "notion-client": "^6.15.6",
+    "notion-types": "^6.15.6",
+    "notion-utils": "^6.15.6",
+    "p-map": "^5.5.0",
+    "p-memoize": "^6.0.2",
+    "posthog-js": "^1.39.0",
+    "react": "^18.2.0",
+    "react-body-classname": "^1.3.1",
+    "react-dom": "^18.2.0",
+    "react-notion-x": "^6.15.7",
+    "react-tweet-embed": "^2.0.0",
+    "react-use": "^17.4.0",
+    "rss": "^1.2.2"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^12.3.4",
+    "@trivago/prettier-plugin-sort-imports": "^3.4.0",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4"
+  },
+  "overrides": {
+    "cacheable-request": {
+      "keyv": "npm:@keyvhq/core@~1.6.6"
+    }
+  }
+}
