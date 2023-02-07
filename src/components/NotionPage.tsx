@@ -106,7 +106,7 @@ const propertyLastEditedTimeValue = (
 ) => {
   if (pageHeader && block?.last_edited_time) {
     return `Last updated ${formatDate(block?.last_edited_time, {
-      month: 'long'
+      month: 'short'
     })}`
   }
 
@@ -122,7 +122,7 @@ const propertyDateValue = (
 
     if (publishDate) {
       return `${formatDate(publishDate, {
-        month: 'long'
+        month: 'short'
       })}`
     }
   }
@@ -234,8 +234,6 @@ export const NotionPage = ({
     getPageProperty<string>('Description', block, recordMap) ||
     config.description
 
-  console.log('components', components)
-
   return (
     <>
       <PageHead
@@ -273,7 +271,11 @@ export const NotionPage = ({
         searchNotion={config.isSearchEnabled ? searchNotion : null}
         footer={footer}
       />
-      <Utterances />
+
+      {pageId !== site.rootNotionPageId ||
+        (pageId !== '0dd93a1ac27d4dc0b3ec108e3e00c16d' && (
+          <Utterances darkMode={isDarkMode} />
+        ))}
     </>
   )
 }

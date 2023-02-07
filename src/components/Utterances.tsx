@@ -1,7 +1,14 @@
 import React from 'react'
 
-const Utterances: React.FC = () => (
+type Props = {
+  darkMode?: boolean
+}
+
+const Utterances = ({ darkMode }: Props) => (
   <section
+    style={{
+      backgroundColor: darkMode ? '#2f3437' : '#fff'
+    }}
     ref={(elem) => {
       if (!elem) {
         return
@@ -11,7 +18,10 @@ const Utterances: React.FC = () => (
       scriptElem.async = true
       scriptElem.setAttribute('repo', 'leee-dw/leee-dw')
       scriptElem.setAttribute('issue-term', 'pathname')
-      scriptElem.setAttribute('theme', 'github-light')
+      scriptElem.setAttribute(
+        'theme',
+        darkMode ? 'github-dark' : 'github-light'
+      )
       scriptElem.setAttribute('label', 'blog-comment')
       scriptElem.crossOrigin = 'anonymous'
       elem.appendChild(scriptElem)
