@@ -24,6 +24,7 @@ import { Loading } from './Loading'
 import { Page404 } from './Page404'
 import { PageHead } from './PageHead'
 import { PageHeader } from './PageHeader'
+import Utterances from './Utterances'
 import styles from './styles.module.css'
 
 // -----------------------------------------------------------------------------
@@ -272,6 +273,7 @@ export const NotionPage = ({
         searchNotion={config.isSearchEnabled ? searchNotion : null}
         footer={footer}
       />
+      <Utterances />
     </>
   )
 }
