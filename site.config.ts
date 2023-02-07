@@ -14,7 +14,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: '블로그',
-  domain: 'leee-dw.com',
+  domain: 'investing.leee-dw.com',
   author: 'Dongwoo Lee',
 
   // open graph metadata (optional)
